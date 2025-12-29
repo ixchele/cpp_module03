@@ -1,6 +1,5 @@
 #include <ClapTrap.hpp>
 #include <iostream>
-#include <ostream>
 #include <string>
 
 static void	log(void) {
@@ -14,7 +13,7 @@ ClapTrap::ClapTrap() :
 
 ClapTrap::ClapTrap(std::string name) :
 	_name(name), _hit_points(10), _energy_points(10), _attack_damage(0) {
-	log(); std::cout << "default constructor of ClapTrap called" << std::endl;
+	log(); std::cout << "parametrized constructor of ClapTrap called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) :
@@ -28,9 +27,13 @@ ClapTrap::~ClapTrap() {
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &other) {
-	_hit_points = other.getHitPoints();
-	_energy_points = other.getEnergyPoints();
-	_attack_damage = other.getAttackDamage();
+	if (this != &other)
+	{
+		_name = other._name;
+		_hit_points = other._hit_points;
+		_energy_points = other._energy_points;
+		_attack_damage = other._attack_damage;
+	}
 	return *this;
 }
 
@@ -67,8 +70,11 @@ void	ClapTrap::setHitPoints(unsigned int amount) {
 }
 
 void	ClapTrap::attack(const std::string &target) {
-	if (getEnergyPoints() != 0)
-		_energy_points--;
+	if (getEnergyPoints() == 0) {
+		std::cout << "ClapTrap " << getName() << " has 0 energy" << std::endl;
+		return;
+	}
+	_energy_points--;
 	std::cout << "ClapTrap " << getName() << " attacks ";
 	std::cout << target << ", causing " << getAttackDamage() << " points of damage" << std::endl;
 }
