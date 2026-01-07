@@ -1,4 +1,4 @@
-#include "DiamondTrap.hpp"
+#include <DiamondTrap.hpp>
 #include <iostream>
 
 DiamondTrap::DiamondTrap()
@@ -40,5 +40,5 @@ void DiamondTrap::attack(const std::string &target) {
 
 void DiamondTrap::whoAmI() {
     std::cout << "I am DiamondTrap " << _name << std::endl;
-    std::cout << "My ClapTrap name is " << ClapTrap::_name << std::endl;
+    std::cout << "My ClapTrap name is " << ClapTrap:: _name << std::endl;
 }
