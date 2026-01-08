@@ -12,7 +12,7 @@ CXX = c++
 INCLUDES = -I.
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDES)
 LFLAGS =  $(CPPFLAGS)
-SRC = ./ScavTrap.cpp ./ClapTrap.cpp ./main.cpp
+SRC = ./FragTrap.cpp ./ClapTrap.cpp ./main.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)

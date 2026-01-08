@@ -38,6 +38,10 @@ void	ScavTrap::attack(const std::string &target) {
 		std::cout << "ScavTrap " << getName() << " has 0 energy" << std::endl;
 		return;
 	}
+	else if (getHitPoints() == 0) {
+		std::cout << "ScavTrap " << getName() << " is dead" << std::endl;
+		return;
+	}
 	_energy_points--;
 	std::cout << "ScavTrap " << getName() << " attacks ";
 	std::cout << target << ", causing " << getAttackDamage() << " points of damage" << std::endl;
